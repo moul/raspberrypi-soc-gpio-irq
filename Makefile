@@ -20,9 +20,11 @@ clean:
 	sudo mv /usr/src/linux-$(LINUX_COMMIT) $@
 	sudo ln -s $@ /usr/src/linux
 	sudo ln -s $@ $(KERNEL_HEADERS)
+	$(MAKE) prepare_kernel
 
+prepare_kernel:
 	@echo "Prepare kernel for module building"
 	sudo make -C $(KERNEL_HEADERS) mrproper
 	sudo sh -c 'zcat /proc/config.gz  > $(KERNEL_HEADERS)/.config'
-	cd $(KERNEL_HEADERS); sudo wget https://github.com/raspberrypi/firmware/raw//extra/Module.symvers
+	cd $(KERNEL_HEADERS); sudo wget https://github.com/raspberrypi/firmware/raw/$(FIRMWARE_COMMIT)/extra/Module.symvers
 	sudo make -C $(KERNEL_HEADERS) modules_prepare
