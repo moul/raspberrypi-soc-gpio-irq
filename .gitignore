@@ -1,3 +1,5 @@
+modules.order
+
 # Object files
 *.o
 *.ko
