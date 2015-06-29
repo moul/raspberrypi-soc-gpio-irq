@@ -32,3 +32,8 @@ modules.order
 
 # Debug files
 *.dSYM/
+
+.*.cmd
+.tmp_versions/
+Module.symvers
+*.mod.c
