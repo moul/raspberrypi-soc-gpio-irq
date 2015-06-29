@@ -33,7 +33,13 @@ modules.order
 # Debug files
 *.dSYM/
 
+# Kernel build files
 .*.cmd
 .tmp_versions/
 Module.symvers
 *.mod.c
+
+# Junk files
+*~
+.#*
+.*~
